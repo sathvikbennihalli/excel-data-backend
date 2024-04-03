@@ -13,11 +13,7 @@ const db = mysql.createConnection({
   database: "u540517340_zepto",
 });
 
-app.get("/", (re, res) => {
-  return res.json("From backend side");
-});
-
-app.get("/agents", (req, res) => {
+app.get("/", (req, res) => {
   const sql = "SELECT * FROM agents";
   db.query(sql, (err, data) => {
     if (err) return res.json(err);
