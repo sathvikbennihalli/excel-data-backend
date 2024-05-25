@@ -6,12 +6,16 @@ const app = express();
 
 // Configure CORS options
 const corsOptions = {
-  origin: ["https://excel-data-frontend.pages.dev"],
+  origin: [
+    "https://excel-data-frontend.pages.dev",
+    "https://excel-data-backend.onrender.com/",
+  ],
   optionsSuccessStatus: 200,
 };
+//excel-data-backend.onrender.com/
 
 // Use CORS middleware with the configured options
-app.use(cors(corsOptions));
+https: app.use(cors(corsOptions));
 
 // Setup MySQL database connection
 const db = mysql.createConnection({
