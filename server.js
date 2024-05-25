@@ -1,6 +1,6 @@
-const express = require("express");
-const mysql = require("mysql");
-const cors = require("cors");
+import express from 'express';
+import mysql from 'mysql';
+import cors from 'cors';
 
 const app = express();
 
@@ -10,9 +10,8 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-
 // Use CORS middleware with the configured options
-https: app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // Setup MySQL database connection
 const db = mysql.createConnection({
