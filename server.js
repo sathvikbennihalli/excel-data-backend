@@ -6,10 +6,7 @@ const app = express();
 
 // Configure CORS options
 const corsOptions = {
-  origin: [
-    "https://excel-data-frontend.pages.dev",
-    "https://excel-data-backend.onrender.com/",
-  ],
+  origin: ["https://excel-data-frontend.pages.dev", "http://localhost:3000"],
   optionsSuccessStatus: 200,
 };
 //excel-data-backend.onrender.com/
