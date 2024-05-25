@@ -9,7 +9,7 @@ const corsOptions = {
   origin: ["https://excel-data-frontend.pages.dev", "http://localhost:3000"],
   optionsSuccessStatus: 200,
 };
-//excel-data-backend.onrender.com/
+
 
 // Use CORS middleware with the configured options
 https: app.use(cors(corsOptions));
