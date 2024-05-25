@@ -4,8 +4,16 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+// Configure CORS options
+const corsOptions = {
+  origin: ["https://excel-data-frontend.pages.dev"],
+  optionsSuccessStatus: 200,
+};
 
+// Use CORS middleware with the configured options
+app.use(cors(corsOptions));
+
+// Setup MySQL database connection
 const db = mysql.createConnection({
   host: "193.203.184.81",
   user: "u540517340_zepto",
@@ -13,14 +21,19 @@ const db = mysql.createConnection({
   database: "u540517340_zepto",
 });
 
+// Endpoint to fetch data from the database
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM agents";
   db.query(sql, (err, data) => {
-    if (err) return res.json(err);
+    if (err) {
+      console.error("Database query error:", err);
+      return res.status(500).json(err);
+    }
     return res.json(data);
   });
 });
 
+// Start the server and listen on port 3001
 app.listen(3001, () => {
-  console.log("listening");
+  console.log("Server is listening on port 3001");
 });
